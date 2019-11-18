@@ -18,24 +18,21 @@ public class MakeChange {
 	}
 
 	private static double makeChange(double changeDue) {
-		double[] currency = { 20, 10, 5, 1, .25, .1, .05, .01 };
+		double[] currency = { 100, 50, 20, 10, 5, 1, .25, .1, .05, .010 };
 		System.out.println();
 		System.out.println();
 		changeDue = (changeDue * -1);
 		do {
 			for (int i = 0; i < currency.length; i++) {
 				do {
-					if ((changeDue >= currency[i] || (changeDue < 0.01 && changeDue > 0))) {
-						if ((changeDue < .01 && changeDue > 0)) { // This looks for a rounding error on the last penny
-							System.out.printf("0.01");
-						} else
+					if (((changeDue + .001) >= currency[i])) {
 							System.out.printf("%.2f\n", currency[i]);
-
-						changeDue = changeDue - currency[i];
-					}
+							changeDue = (changeDue) - currency[i];
+//									System.out.println(changeDue);
+						}
 				} while (changeDue > currency[i]);
-			}
+					}
+			return changeDue;
 		} while (changeDue >= 0.0);
-		return changeDue;
 	}
 }
