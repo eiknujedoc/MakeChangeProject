@@ -25,9 +25,9 @@ public class MakeChange {
 		do {
 			for (int i = 0; i < currency.length; i++) {
 				do {
-					if ((changeDue >= currency[i])) {
-						if ((changeDue < 0.01 && changeDue > -0.01)) { //This stops the machine from stealing the last penny
-							System.out.printf("%.2f\n", currency[i]);
+					if ((changeDue >= currency[i] || (changeDue < 0.01 && changeDue > 0))) {
+						if ((changeDue < .01 && changeDue > 0)) { // This looks for a rounding error on the last penny
+							System.out.printf("0.01");
 						} else
 							System.out.printf("%.2f\n", currency[i]);
 
