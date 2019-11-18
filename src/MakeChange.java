@@ -26,7 +26,7 @@ public class MakeChange {
 			for (int i = 0; i < currency.length; i++) {
 				do {
 					if ((changeDue >= currency[i])) {
-						if ((changeDue < 0.01 && changeDue > 0.01)) { //This stops the machine from stealing the last penny
+						if ((changeDue < 0.01 && changeDue > -0.01)) { //This stops the machine from stealing the last penny
 							System.out.printf("%.2f\n", currency[i]);
 						} else
 							System.out.printf("%.2f\n", currency[i]);
